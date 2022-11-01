@@ -7,5 +7,6 @@ submitButton.addEventListener("click", submitHandler)
 function submitHandler(e) {
   e.preventDefault()
   const searchTerm = searchTextBox.value.trim()
-  console.log(searchTerm)
+  const format = formatDropdown.value
+  console.log(format)
 }
