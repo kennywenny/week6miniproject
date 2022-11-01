@@ -6,5 +6,6 @@ submitButton.addEventListener("click", submitHandler)
 
 function submitHandler(e) {
   e.preventDefault()
-  console.log("You're submissive")
+  const searchTerm = searchTextBox.value.trim()
+  console.log(searchTerm)
 }
