@@ -11,13 +11,16 @@ for (let i = 0; i < querySplit.length; i++) {
     format = splitAgain[1]
   }
 }
-console.log("Format", format)
-console.log("Search term", searchTerm)
 
-async function submitHandler(e) {
-  e.preventDefault()
+search(searchTerm, format)
+
+async function search(searchTerm, format) {
   const url = `https://www.loc.gov/${format}/?q=${searchTerm}&fo=json`
   const result = await fetch(url)
   const data = await result.json()
   console.log(data)
+  const featuredItems = data.featured_items
+  for (let i = 0; i < featuredItems.length; i++) {
+    console.log(featuredItems[i])
+  }
 }
