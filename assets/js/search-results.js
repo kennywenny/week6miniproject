@@ -26,7 +26,7 @@ async function search(searchTerm, format) {
     Object.keys(result)
       .map(it => {
         const listItemElement = document.createElement('li')
-        listItemElement.textContent = `${it}: ${results[it]}`
+        listItemElement.textContent = `${it}: ${result[it]}`
         listElement.appendChild(listItemElement)
       })
     document.querySelector('#cards').appendChild(listElement)
