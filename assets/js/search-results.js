@@ -23,12 +23,23 @@ async function search(searchTerm, format) {
   for (let i = 0; i < results.length; i++) {
     const result = results[i]
     const listElement = document.createElement('ul')
+    const properties = Object.keys(result)
+    for (let j = 0; j < properties.length; j++) {
+      const property = properties[j]
+      const value = result[property]
+      const listItemElement = document.createElement('li')
+      listItemElement.textContent = `${property}: ${value}`
+      listElement.appendChild(listItemElement)
+    }
+    /*
     Object.keys(result)
       .map(it => {
         const listItemElement = document.createElement('li')
-        listItemElement.textContent = `${it}: ${result[it]}`
+        listItemElement.textContent = `${it}: ${featuredItem[it]}`
         listElement.appendChild(listItemElement)
       })
+    })
+      */
     document.querySelector('#cards').appendChild(listElement)
   }
 }
