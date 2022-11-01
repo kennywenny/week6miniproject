@@ -4,9 +4,12 @@ const submitButton = document.querySelector("button")
 
 submitButton.addEventListener("click", submitHandler)
 
-function submitHandler(e) {
+async function submitHandler(e) {
   e.preventDefault()
   const searchTerm = searchTextBox.value.trim()
   const format = formatDropdown.value
-  console.log(format)
+  const url = `https://www.loc.gov/${format}/?q=${searchTerm}&fo=json`
+  const result = await fetch(url)
+  const data = await result.json()
+  console.log(data)
 }
